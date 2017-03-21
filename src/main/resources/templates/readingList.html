@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<link>
-    <meta charset="UTF-8">
-    <title>Reading List</title>
-    <link rel="stylesheet" th:href="@{/style.css}"></link>
+<head>
+    <title>书单</title>
+    <link rel="stylesheet" href="@{/style.css}"></link>
 </head>
 <body>
     <h2>你的书单</h2>
     <div th:unless="${#lists.isEmpty(book)}">
         <dl th:each="book : ${books}">
             <dt class="bookHeadline">
-
-
+                <span th:text="${book.title}">书名</span>作者：
+                <span th:text="${book.author}">书名</span>
+                （ISBN：<span th:text="${book.isbn}">ISBN</span>）
             </dt>
-
+            <dd class="bookDescription">
+                <span th:if="${book.description}" th:text="${book.description}">描述</span>
+                <span th:if="${book.description eq null}">无描述信息</span>
+            </dd>
         </dl>
-
     </div>
+    <div th:if="${#lists.isEmpty(books)}">
+        书单为空
+    </div>
+    <hr/>
+    <h3>新增</h3>
+    <form method="post">
+        <label for="title">标题：</label>
+        <input type="text" name="title" size="50"/><br/>
+        <label for="author">作者：</label>
+        <input type="text" name="author" size="50"/><br/>
+        <label for="isbn">ISBN：</label>
+        <input type="text" name="isbn" size="50"/><br/>
+        <label for="description">描述：</label>
+        <textarea name="description" cols="80" rows="5"></textarea><br/>
+        <input type="submit"/>
+    </form>
 
 </body>
 </html>
