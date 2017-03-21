@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<link>
+    <meta charset="UTF-8">
+    <title>Reading List</title>
+    <link rel="stylesheet" th:href="@{/style.css}"></link>
+</head>
+<body>
+    <h2>你的书单</h2>
+    <div th:unless="${#lists.isEmpty(book)}">
+        <dl th:each="book : ${books}">
+            <dt class="bookHeadline">
+
+
+            </dt>
+
+        </dl>
+
+    </div>
+
+</body>
+</html>
