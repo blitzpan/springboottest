@@ -18,7 +18,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
  * Created by Administrator on 2017-3-22.
  */
 
-@Profile("prod") //如果使用的配置文件是生产文件的话，那么激活本类，否则不激活
+@Profile("prod") //如果使用的配置文件是生产文件application-prod.properties的话，那么激活本类，否则不激活
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
