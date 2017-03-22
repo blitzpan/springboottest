@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>错误</title>
+    <link rel="stylesheet" th:href="@{/style.css}"></link>
+</head>
+<body>
+    <div class="errorPage">
+        <span class="oops">Oops!</span><br/>
+        <img th:src="@{/MissingPage.png}"></img>
+        <p>出现异常：</p>
+        <table border="1">
+            <tr>
+                <td>路径</td>
+                <td th:text="${path}"></td>
+            </tr>
+            <tr>
+                <td>详细</td>
+                <td th:text="${message}"></td>
+            </tr>
+            <tr>
+                <td>时间</td>
+                <td th:text="${timestamp}"></td>
+            </tr>
+            <tr>
+                <td>status</td>
+                <td th:text="${status}"></td>
+            </tr>
+            <tr>
+                <td>exception name</td>
+                <td th:text="${exception}"></td>
+            </tr>
+            <tr>
+                <td>异常堆栈</td>
+                <td th:text="${trace}"></td>
+            </tr>
+            <tr>
+                <td>异常里的各种错误</td>
+                <td th:text="${errors}"></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
