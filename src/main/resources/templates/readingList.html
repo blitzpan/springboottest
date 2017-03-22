@@ -1,12 +1,11 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>书单</title>
-    <link rel="stylesheet" href="@{/style.css}"></link>
+    <link rel="stylesheet" th:href="@{/style.css}"></link>
 </head>
 <body>
     <h2>你的书单</h2>
-    <div th:unless="${#lists.isEmpty(book)}">
+    <div th:unless="${#lists.isEmpty(books)}">
         <dl th:each="book : ${books}">
             <dt class="bookHeadline">
                 <span th:text="${book.title}">书名</span>作者：

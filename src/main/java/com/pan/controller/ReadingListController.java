@@ -1,5 +1,6 @@
 package com.pan.controller;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.pan.po.Book;
 import com.pan.repository.ReadingListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,7 @@ public class ReadingListController {
      */
     @RequestMapping(value = "/{reader}", method = RequestMethod.GET)
     public String readersBooks(@PathVariable("reader") String reader, Model model){
+        System.out.println("readersBooks：" + reader);
         List<Book> readingList = readingListRepository.findByReader(reader);
         if(readingList != null){
             model.addAttribute("books", readingList);
@@ -42,6 +44,7 @@ public class ReadingListController {
     @RequestMapping(value="/{reader}", method=RequestMethod.POST)
     public String addToReadingList(@PathVariable("reader") String reader, Book book){
         book.setReader(reader);
+        System.out.print(book);
         readingListRepository.save(book);
         return "redirect:./{reader}";
     }
