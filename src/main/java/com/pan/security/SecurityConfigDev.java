@@ -25,6 +25,7 @@ public class SecurityConfigDev extends WebSecurityConfigurerAdapter {
     private ReaderRepository readerRepository;
 
     protected  void configure(HttpSecurity http) throws Exception{
+        http.csrf().disable();//不加这一句就一直报Could not verify the provided CSRF token because your session was not found.
         //要求访问路径/read/*的用户必须有reader角色
         //其他的路径都允许访问permit
         //设置登录表单的路径
